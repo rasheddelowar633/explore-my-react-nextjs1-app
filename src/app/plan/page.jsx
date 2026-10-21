@@ -151,7 +151,7 @@ const MyPlan = () => {
                   : "border-transparent text-gray-400"
               }`}
             >
-              Today's Plan ({todayPlan.length})
+              Today&apos;s Plan ({todayPlan.length})
             </button>
 
             <button

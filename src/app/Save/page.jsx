@@ -81,7 +81,7 @@ const SavePage = () => {
           </div>
         ) : (
           /* Horizontal Card Layout */
-          <div className="flex w-full flex-col gap-5">
+          <div className="flex w-[800px] h-[400px] flex-col gap-5">
             {savedWorkouts.map((workout) => (
               <article
                 key={workout.id ?? workout._id}
