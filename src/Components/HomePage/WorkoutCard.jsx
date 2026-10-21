@@ -1,8 +1,16 @@
+
+"use client";
+
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const WorkoutCard = ({ workout }) => {
   return (
-    <Link href={`/workouts/${workout.id}`} className="block">
+    <Link
+      href={`/workouts/${workout.id}`}
+      className="block"
+      onClick={() => toast.success("Opening workout details!")}
+    >
       <div className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
         {/* Workout Image */}
         <div className="relative overflow-hidden">
