@@ -225,8 +225,35 @@ const MyPlan = () => {
                 return (
                   <article
                     key={String(workoutId ?? index)}
-                    className="group rounded-xl border border-white/10 bg-[#111] p-4 transition hover:border-[#C2F800]/40"
+                    className="group relative rounded-xl border border-white/10 bg-[#111] p-4 transition hover:border-[#C2F800]/40"
                   >
+                    {/* Remove Button - Top Right Corner */}
+                    <div className="absolute right-3 top-3 z-10">
+                      {activeTab === "plan" ? (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleRemoveFromPlan(workout)
+                          }
+                          className="flex h-8 w-8 items-center justify-center rounded-full border border-red-500/30 bg-black/80 text-sm font-bold text-red-400 transition hover:bg-red-500 hover:text-white"
+                          aria-label="Remove from plan"
+                          title="Remove from plan"
+                        >
+                          ✕
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveSaved(workout)}
+                          className="flex h-8 w-8 items-center justify-center rounded-full border border-[#C2F800]/30 bg-black/80 text-sm font-bold text-[#C2F800] transition hover:bg-[#C2F800] hover:text-black"
+                          aria-label="Remove from saved"
+                          title="Remove from saved"
+                        >
+                          ♥
+                        </button>
+                      )}
+                    </div>
+
                     <div className="flex gap-4">
                       {/* Workout Image */}
                       <Link
@@ -241,7 +268,7 @@ const MyPlan = () => {
                       </Link>
 
                       {/* Workout Information */}
-                      <div className="min-w-0 flex-1">
+                      <div className="min-w-0 flex-1 pr-7">
                         <Link href={`/workouts/${workoutId}`}>
                           <h2 className="truncate font-black transition group-hover:text-[#C2F800]">
                             {workout.name || "Untitled Workout"}
@@ -266,29 +293,6 @@ const MyPlan = () => {
                           </span>
                         </div>
                       </div>
-                    </div>
-
-                    {/* Remove Button */}
-                    <div className="mt-4 border-t border-white/10 pt-3">
-                      {activeTab === "plan" ? (
-                        <button
-                          type="button"
-                          onClick={() =>
-                            handleRemoveFromPlan(workout)
-                          }
-                          className="w-full rounded-lg border border-red-500/30 px-4 py-2.5 text-sm font-bold text-red-400 transition hover:bg-red-500/10"
-                        >
-                          ✕ Remove from Plan
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={() => handleRemoveSaved(workout)}
-                          className="w-full rounded-lg border border-[#C2F800]/30 px-4 py-2.5 text-sm font-bold text-[#C2F800] transition hover:bg-[#C2F800]/10"
-                        >
-                          ♥ Remove from Saved
-                        </button>
-                      )}
                     </div>
                   </article>
                 );
