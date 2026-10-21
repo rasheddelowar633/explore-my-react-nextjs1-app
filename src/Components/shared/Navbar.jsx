@@ -54,7 +54,7 @@ export default function NavbarPage() {
             className={`flex items-center gap-2 rounded-lg border px-3 py-2 font-bold transition hover:border-[#C2F800] ${
               pathname === "/Save"
                 ? "border-[#C2F800] text-[#C2F800]"
-                : "border-white/20 text-white"
+                : "border-white/20 text-[#C2F800]"
             }`}
           >
             Saved
@@ -66,7 +66,7 @@ export default function NavbarPage() {
 
           <Link
             href="/plan"
-            className="flex items-center gap-2 rounded-lg bg-[#C2F800] px-3 py-2 font-bold text-black transition hover:bg-white"
+            className="flex items-center gap-2 rounded-lg bg-[#C2F800] px-3 py-2 font-bold text-white transition hover:bg-white"
           >
             My Plan
 
